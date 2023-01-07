@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Demo.Models.Item>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Danh sách xe</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã xe
+        </th>
+        <th>
+            Tên xe
+        </th>
+        <th>
+            Giá 
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaXe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenXe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gia)
+        </td>
+        <td>
+            <img src="@Url.Content("http://192.168.1.9/dacn/assets/images/xe/"+item.HinhAnh)"/>
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
